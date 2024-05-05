@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import Card from "./components/Card";
 import { useDispatch } from "react-redux";
 import { initializeJobs } from "./reducers/jobReducer";
+import "./App.css";
+import JobLists from "./components/JobLists";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -11,8 +12,8 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <Card />
+    <div className="container">
+      <JobLists />
     </div>
   );
 };

@@ -18,7 +18,8 @@ const getAllJobs = () => {
     requestOptions
   )
     .then((response) => response.json())
-    .then((result) => result);
+    .then((result) => result)
+    .then((res) => res.jdList);
 
   return result;
 };
