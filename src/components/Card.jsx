@@ -25,7 +25,7 @@ const Card = ({
 
   return (
     <div className="card-container">
-      <div className="hourglass-container">Posted 4 days aho</div>
+      <div className="hourglass-container">Posted 4 days ago</div>
       <div className="jobinfo-main">
         <div className="jobinfo-left">
           <img
@@ -46,24 +46,25 @@ const Card = ({
           ? `${minJdSalary} - ${maxJdSalary} ${salaryCurrencyCode}`
           : `Upto ${maxJdSalary} ${salaryCurrencyCode}`}
       </div>
-      <div>
-        <div>About Company:</div>
+      <div className="company-details-container">
+        <div className="company-details-title">About Company:</div>
         <div className="job-description-container">
           <span className="job-description-span">{jobDetailsFromCompany}</span>
         </div>
-        <span className="view-more-link" href="#">
-          View more
-        </span>
+        <div className="view-more-container">
+          <span className="view-more-link" href="#">
+            View more
+          </span>
+        </div>
       </div>
       <div className="experience-container">
-        <div className="experience-title">Minumum Experience</div>
+        <div className="experience-title">Minimum Experience</div>
         <div className="experience-value">
           {minExp > 1 ? `${minExp} years` : `${minExp} year`}
         </div>
       </div>
       <div className="buttons">
         <button className="easy-apply-button">Easy Apply</button>
-
         <button className="referral-button">Unlock referral asks</button>
       </div>
     </div>

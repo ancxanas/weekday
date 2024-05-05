@@ -3,9 +3,9 @@
   grid-template-rows: 1fr 2fr 1fr 4fr 1fr 2fr;
   align-items: center;
   border-radius: 1.2rem;
-  padding: 1rem;
+  padding: 1.4rem;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
-  height: 500px;
+  height: 600px;
   width: 350px;
 }
 
@@ -15,13 +15,14 @@
   border: 1px solid rgb(230, 230, 230);
   box-shadow: 0 2px 6px rgba(6, 6, 6, 0.05);
   box-sizing: border-box;
-  border-radius: 1.2rem;
+  border-radius: 0.6rem;
   padding: 0.3rem;
   display: block;
   width: max-content;
 }
 
-.company-name {
+.company-name,
+.experience-title {
   font-weight: 500;
   font-size: 14px;
   color: #8b8b8b;
@@ -29,7 +30,7 @@
 }
 
 .job-role,
-.job-details,
+.job-description-span,
 .salary-details,
 .experience-value {
   font-weight: 300;
@@ -39,15 +40,71 @@
   display: flex;
 }
 
-.company-logo {
-  height: 2rem;
+.jobinfo-right {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  gap: 0.2rem;
 }
 
-.job-details {
+.jobinfo-left {
+  flex: 1;
+}
+
+.company-logo {
+  height: 3rem;
+}
+
+.company-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.company-details-title {
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 0.5rem;
+}
+
+.view-more-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.job-description-container {
+  position: relative;
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 9;
+  -webkit-line-clamp: 17;
+}
+
+.job-description-container:after {
+  content: " ";
+  position: absolute;
+  height: 40%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.view-more-link {
+  font-weight: 300;
+  font-size: 14px;
+  color: #4943da;
+}
+
+.experience-container {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
 }
 
 .buttons {
@@ -57,6 +114,8 @@
 
 .easy-apply-button,
 .referral-button {
+  font-size: 16px;
+  font-weight: 400;
   flex-grow: 1;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -65,4 +124,10 @@
 
 .easy-apply-button {
   margin-bottom: 0.4rem;
+  background-color: rgb(85, 239, 196);
+}
+
+.referral-button {
+  background-color: #0e1dab;
+  color: #f1f1f1;
 }
