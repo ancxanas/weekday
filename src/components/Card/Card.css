@@ -29,6 +29,11 @@
   letter-spacing: 1px;
 }
 
+.location {
+  font-weight: 400;
+  font-size: 11px;
+}
+
 .job-role,
 .job-description-span,
 .salary-details,
@@ -79,7 +84,7 @@
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 17;
+  -webkit-line-clamp: 13;
 }
 
 .job-description-container:after {

@@ -1,13 +1,17 @@
 import { useSelector } from "react-redux";
-import Card from "./Card";
+import Card from "./Card/Card";
 import "./JobLists.css";
 
-const JobLists = () => {
-  const jobs = useSelector((state) => state.jobs);
+const JobLists = ({ bool }) => {
+  const jobs = useSelector((state) => state.jobs.jobs);
+  const filteredJobs = useSelector((state) => state.jobs.filteredJobs);
+
+  let jobsLogic;
+  bool ? (jobsLogic = jobs) : (jobsLogic = filteredJobs);
 
   return (
     <div className="job-lists-container">
-      {jobs.map((job) => {
+      {jobsLogic.map((job) => {
         const {
           jdUid,
           companyName,

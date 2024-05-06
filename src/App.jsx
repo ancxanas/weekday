@@ -3,9 +3,11 @@ import { useDispatch } from "react-redux";
 import { initializeJobs } from "./reducers/jobReducer";
 import "./App.css";
 import JobLists from "./components/JobLists";
+import Filters from "./components/Filters";
 
 const App = () => {
   const dispatch = useDispatch();
+  let bool = true;
 
   useEffect(() => {
     dispatch(initializeJobs());
@@ -13,7 +15,8 @@ const App = () => {
 
   return (
     <div className="container">
-      <JobLists />
+      <Filters bool={bool} />
+      <JobLists bool={bool} />
     </div>
   );
 };

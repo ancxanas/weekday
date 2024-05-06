@@ -1,15 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 import jobService from "../services/jobs";
 
+const initialState = {
+  jobs: [],
+  filteredJobs: [],
+};
+
 const jobSlice = createSlice({
   name: "jobs",
-  initialState: [],
+  initialState,
   reducers: {
+    filterByRole(state, action) {
+      const filteredJobs = state.jobs.filter((jobs) =>
+        jobs.jobRole.toLowerCase().includes(action.payload)
+      );
+
+      return {
+        ...state,
+        filteredJobs:
+          action.payload.length > 0 ? filteredJobs : [...state.jobs],
+      };
+    },
     appendJob(state, action) {
-      state.push(action.payload);
+      state.jobs.push(action.payload);
     },
     setJobs(state, action) {
-      return action.payload;
+      state.jobs = action.payload;
     },
   },
 });
@@ -21,5 +37,5 @@ export const initializeJobs = () => {
   };
 };
 
-export const { appendJob, setJobs } = jobSlice.actions;
+export const { appendJob, setJobs, filterByRole } = jobSlice.actions;
 export default jobSlice.reducer;
