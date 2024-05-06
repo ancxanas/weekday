@@ -1,10 +1,10 @@
-const getAllJobs = () => {
+const getJobs = ({ limit, offset }) => {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
   const body = JSON.stringify({
-    limit: 10,
-    offset: 0,
+    limit,
+    offset,
   });
 
   const requestOptions = {
@@ -24,4 +24,4 @@ const getAllJobs = () => {
   return result;
 };
 
-export default { getAllJobs };
+export default { getJobs };

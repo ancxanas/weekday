@@ -6,7 +6,7 @@ const jobSlice = createSlice({
   initialState: [],
   reducers: {
     appendJob(state, action) {
-      state.push(action.payload);
+      return state.concat(action.payload);
     },
     setJobs(state, action) {
       return action.payload;
@@ -16,8 +16,15 @@ const jobSlice = createSlice({
 
 export const initializeJobs = () => {
   return async (dispatch) => {
-    const jobs = await jobService.getAllJobs();
+    const jobs = await jobService.getJobs({ limit: 10, offset: 0 });
     dispatch(setJobs(jobs));
+  };
+};
+
+export const getMoreJobs = ({ limit, offset }) => {
+  return async (dispatch) => {
+    const jobs = await jobService.getJobs({ limit, offset });
+    dispatch(appendJob(jobs));
   };
 };
 

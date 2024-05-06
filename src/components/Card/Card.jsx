@@ -29,7 +29,7 @@ const Card = ({
   return (
     <div className="card-container">
       <div className="hourglass-container">
-        ⏳ Posted {Math.floor(Math.random() * 50) + 1} days ago
+        ⏳ Posted {Math.floor(Math.random() * 10) + 1} days ago
       </div>
 
       <div className="jobinfo-main">
