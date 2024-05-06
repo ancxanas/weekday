@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getMoreJobs, initializeJobs } from "./reducers/jobReducer";
 import "./App.css";

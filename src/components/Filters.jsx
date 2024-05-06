@@ -73,14 +73,17 @@ const Filters = () => {
   const [name, setName] = useState("");
 
   const handleFilterByLocation = (e) => {
+    if (!e) return;
     dispatch(filterByLocation({ location: e.value, jobs }));
   };
 
   const handleFilterByRole = (e) => {
+    if (!e) return;
     dispatch(filterByRole({ role: e.value, jobs }));
   };
 
   const handleFilterByExperience = (e) => {
+    if (!e) return;
     dispatch(filterByExperience({ experience: e.value, jobs }));
   };
 
@@ -95,23 +98,23 @@ const Filters = () => {
         className="role-filter-select"
         name="role-filter"
         options={roleOptions}
-        placeholder="Role"
         isClearable
+        placeholder="Role"
         onChange={handleFilterByRole}
       />
       <Select
         className="experience-filter-select"
         options={experienceOptions}
-        isClearable
         name="experience-filter"
         placeholder="Experience"
+        isClearable
         onChange={handleFilterByExperience}
       />
       <Select
         className="location-filter-select"
         options={locationOptions}
-        isClearable
         name="location-filter"
+        isClearable
         placeholder="Location"
         onChange={handleFilterByLocation}
       />
