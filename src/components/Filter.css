@@ -1,0 +1,23 @@
+.filter-container {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.role-filter-select,
+.experience-filter-select,
+.location-filter-select,
+.name-filter-input {
+  flex: 1;
+  font-weight: 500;
+  padding: 0 10px;
+}
+
+.name-filter-input {
+  border-radius: 0.3rem;
+  border: 1px solid hsl(0, 0%, 80%);
+}
+
+.name-filter-input::placeholder {
+  font-size: 16px;
+}

@@ -7,7 +7,6 @@ import Filters from "./components/Filters";
 
 const App = () => {
   const dispatch = useDispatch();
-  let bool = true;
 
   useEffect(() => {
     dispatch(initializeJobs());
@@ -15,8 +14,8 @@ const App = () => {
 
   return (
     <div className="container">
-      <Filters bool={bool} />
-      <JobLists bool={bool} />
+      <Filters />
+      <JobLists />
     </div>
   );
 };

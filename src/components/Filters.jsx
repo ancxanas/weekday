@@ -1,6 +1,13 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
-import { filterByRole } from "../reducers/jobReducer";
+import {
+  filterByExperience,
+  filterByLocation,
+  filterByName,
+  filterByRole,
+} from "../reducers/filterReducer";
+import { useState } from "react";
+import "./Filter.css";
 
 const roleOptions = [
   {
@@ -25,23 +32,95 @@ const roleOptions = [
   },
 ];
 
-const Filters = ({ bool }) => {
+const experienceOptions = [];
+
+for (let i = 0; i <= 10; i++) {
+  let obj = {
+    value: i,
+    label: i,
+  };
+
+  experienceOptions.push(obj);
+}
+
+const locationOptions = [
+  {
+    value: "delhi ncr",
+    label: "Delhi NCR",
+  },
+  {
+    value: "bangalore",
+    label: "Bangalore",
+  },
+  {
+    value: "mumbai",
+    label: "Mumbai",
+  },
+  {
+    value: "chennai",
+    label: "Chennai",
+  },
+  {
+    value: "remote",
+    label: "Remote",
+  },
+];
+
+const Filters = () => {
   const dispatch = useDispatch();
+  const jobs = useSelector((state) => state.jobs);
+
+  const [name, setName] = useState("");
+
+  const handleFilterByLocation = (e) => {
+    dispatch(filterByLocation({ location: e.value, jobs }));
+  };
+
+  const handleFilterByRole = (e) => {
+    dispatch(filterByRole({ role: e.value, jobs }));
+  };
+
+  const handleFilterByExperience = (e) => {
+    dispatch(filterByExperience({ experience: e.value, jobs }));
+  };
+
+  const handleFilterByName = (e) => {
+    setName(e.target.value);
+    dispatch(filterByName({ name: e.target.value, jobs }));
+  };
 
   return (
-    <div>
+    <div className="filter-container">
       <Select
+        className="role-filter-select"
         name="role-filter"
         options={roleOptions}
         placeholder="Role"
         isClearable
-        onChange={(e) => {
-          dispatch(filterByRole(e.value));
-        }}
+        onChange={handleFilterByRole}
       />
       <Select
-        options={roleOptions}
-        onChange={(e) => dispatch(filterByRole(e.value))}
+        className="experience-filter-select"
+        options={experienceOptions}
+        isClearable
+        name="experience-filter"
+        placeholder="Experience"
+        onChange={handleFilterByExperience}
+      />
+      <Select
+        className="location-filter-select"
+        options={locationOptions}
+        isClearable
+        name="location-filter"
+        placeholder="Location"
+        onChange={handleFilterByLocation}
+      />
+      <input
+        className="name-filter-input"
+        value={name}
+        name="name-filter"
+        placeholder="Company name"
+        onChange={handleFilterByName}
       />
     </div>
   );
