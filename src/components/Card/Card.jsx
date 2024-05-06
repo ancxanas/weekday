@@ -10,15 +10,12 @@ const toPascalCaseWithSpaces = (str) => {
 
 const Card = ({
   companyName,
-  jdLink,
   jobRole,
   location,
   logoUrl,
-  maxExp,
   maxJdSalary,
   minExp,
   minJdSalary,
-  salaryCurrencyCode,
   jobDetailsFromCompany,
 }) => {
   jobRole = toPascalCaseWithSpaces(jobRole);
